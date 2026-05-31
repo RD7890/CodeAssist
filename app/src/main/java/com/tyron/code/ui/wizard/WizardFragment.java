@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Environment;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.Editable;
@@ -287,12 +288,7 @@ public class WizardFragment extends Fragment {
     }
 
     private void initializeSaveLocation() {
-        if (mUseInternalStorage) {
-            mSaveLocationLayout.setHelperText(getString(R.string.wizard_scoped_storage_info));
-            mSaveLocationLayout.getEditText().setText(requireContext()
-                    .getExternalFilesDir("Projects").getAbsolutePath());
-            mSaveLocationLayout.getEditText().setInputType(InputType.TYPE_NULL);
-        }
+        mSaveLocationLayout.getEditText().setText(new File(Environment.getExternalStorageDirectory(), "CodeAssist/projects").getAbsolutePath());
 //        mSaveLocationLayout.setEndIconOnClickListener(view -> {
 //            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
 //                if (isGrantedStoragePermission()) {

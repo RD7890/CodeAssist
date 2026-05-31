@@ -10,6 +10,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import android.content.Context;
+import android.os.Environment;
 import android.util.Log;
 
 public class Decompress {
@@ -19,7 +20,7 @@ public class Decompress {
     public static void unzipFromAssets(Context context, String zipFile, String destination) {
         try {
             if (destination == null || destination.length() == 0)
-                destination = context.getFilesDir().getAbsolutePath();
+                destination = new File(Environment.getExternalStorageDirectory(), "CodeAssist/projects").getAbsolutePath();
             try (InputStream stream = context.getAssets().open(zipFile)) {
                 unzip(stream, destination);
             }

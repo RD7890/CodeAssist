@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Environment;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
@@ -309,12 +310,7 @@ public class ProjectManagerFragment extends Fragment {
 
         Executors.newSingleThreadExecutor().execute(() -> {
             String path;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                path = requireContext().getExternalFilesDir("Projects").getAbsolutePath();
-            } else {
-                path = mPreferences.getString(SharedPreferenceKeys.PROJECT_SAVE_PATH,
-                        requireContext().getExternalFilesDir("Projects").getAbsolutePath());
-            }
+            path = new File(Environment.getExternalStorageDirectory(), "CodeAssist/projects").getAbsolutePath();
             File projectDir = new File(path);
             File[] directories = projectDir.listFiles(File::isDirectory);
 

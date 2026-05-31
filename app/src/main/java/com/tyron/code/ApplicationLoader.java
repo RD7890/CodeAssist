@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.os.Environment;
 import android.widget.Toast;
 
 import androidx.annotation.Keep;
@@ -104,7 +105,7 @@ public class ApplicationLoader extends Application {
 
         runStartup();
 
-        File userDir = new File(getFilesDir(), "user_dir");
+        File userDir = new File(new File(Environment.getExternalStorageDirectory(), "CodeAssist/projects"), "user_dir");
         System.setProperty("codeassist.user.dir", userDir.getAbsolutePath());
     }
 
