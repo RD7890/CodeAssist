@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Environment;
 import android.os.Bundle;
-import android.os.Environment;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
