@@ -1,16 +1,16 @@
 package com.tyron.code;
 
-import android.os.Bundle;
 import android.Manifest;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
-import androidx.core.app.ActivityCompat;
 import android.view.KeyEvent;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.view.WindowCompat;
 
 import com.tyron.code.ui.project.ProjectManagerFragment;
@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             if (!Environment.isExternalStorageManager()) {
                 startActivity(new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION));
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
         }
+
         setContentView(R.layout.main);
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
