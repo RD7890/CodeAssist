@@ -105,7 +105,7 @@ public class ApplicationLoader extends Application {
 
         runStartup();
 
-        File userDir = new File(new File(Environment.getExternalStorageDirectory(), "CodeAssist/projects"), "user_dir");
+        File userDir = new File(Environment.getExternalStorageDirectory(), "CodeAssist/projects");
         System.setProperty("codeassist.user.dir", userDir.getAbsolutePath());
     }
 
