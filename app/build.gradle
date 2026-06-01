@@ -60,6 +60,17 @@ android {
     }
 }
 
+configurations.all {
+    resolutionStrategy {
+        force 'org.eclipse.platform:org.eclipse.core.resources:3.14.0'
+        force 'org.eclipse.platform:org.eclipse.core.runtime:3.20.100'
+        force 'org.eclipse.platform:org.eclipse.core.filesystem:1.8.0'
+        force 'org.eclipse.platform:org.eclipse.text:3.10.0'
+        force 'org.eclipse.platform:org.eclipse.core.jobs:3.13.0'
+        force 'org.eclipse.platform:org.eclipse.equinox.common:3.14.0'
+    }
+}
+
 configurations.implementation {
     exclude group: "org.jetbrains", module: "annotations"
     exclude group: 'com.android.tools', module: 'common'
