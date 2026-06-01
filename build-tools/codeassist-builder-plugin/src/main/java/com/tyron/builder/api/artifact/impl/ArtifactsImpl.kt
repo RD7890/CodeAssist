@@ -77,7 +77,6 @@ class ArtifactsImpl(
         when(scope) {
             ScopedArtifacts.Scope.PROJECT -> projectScopedArtifacts
             ScopedArtifacts.Scope.ALL -> allScopedArtifacts
-            else -> throw IllegalArgumentException("Not implemented yet !")
         }
 
     override fun <FILE_TYPE : FileSystemLocation> get(

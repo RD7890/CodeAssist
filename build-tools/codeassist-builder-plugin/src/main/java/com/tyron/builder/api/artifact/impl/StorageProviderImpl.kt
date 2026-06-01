@@ -28,7 +28,6 @@ class StorageProviderImpl {
         return when(artifactKind) {
             ArtifactKind.FILE -> fileStorage
             ArtifactKind.DIRECTORY -> directory
-            else -> throw RuntimeException("Cannot handle $this")
         } as TypedStorageProvider<T>
     }
 }
